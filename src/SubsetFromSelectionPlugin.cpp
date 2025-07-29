@@ -168,7 +168,7 @@ void SubsetFromSelectionPlugin::createSubsetWithChildren(Dataset<Points>& inputP
             if (!fullChildPoints.isValid()) {
                 continue;
             }
-
+            fullChildPoints->setLocked(true);
             Dataset<Points> childClusterPoints = mv::data().createDerivedDataset(
                 child->getGuiName(),
                 clusterPointsDataset
@@ -184,6 +184,7 @@ void SubsetFromSelectionPlugin::createSubsetWithChildren(Dataset<Points>& inputP
             childClusterPoints->setData(childClusterData.data(), selectionIndices.size(), childNumDimensions);
             childClusterPoints->setDimensionNames(fullChildPoints->getDimensionNames());
             datasetsToNotify.push_back(childClusterPoints);
+            fullChildPoints->setLocked(false);
         }
 
         else if (child->getDataType() == ClusterType) {
@@ -191,7 +192,7 @@ void SubsetFromSelectionPlugin::createSubsetWithChildren(Dataset<Points>& inputP
             if (!fullChildClusters.isValid()) {
                 continue;
             }
-
+            fullChildClusters->setLocked(true);
             Dataset<Clusters> childClusterDataset = mv::data().createDataset(
                 "Cluster",
                 child->getGuiName(),
@@ -221,6 +222,7 @@ void SubsetFromSelectionPlugin::createSubsetWithChildren(Dataset<Points>& inputP
             }
 
             datasetsToNotify.push_back(childClusterDataset);
+            fullChildClusters->setLocked(false);
         }
 
     }
