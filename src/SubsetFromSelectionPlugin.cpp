@@ -123,7 +123,7 @@ void SubsetFromSelectionPlugin::transform()
 }
 
 
-void SubsetFromSelectionPlugin::createSubsetWithChildren(Dataset<Points>& inputPointsDataset)
+void SubsetFromSelectionPlugin::createSubsetWithChildren(mv::Dataset<Points>& inputPointsDataset)
 {
 
     mv::Datasets datasetsToNotify;
