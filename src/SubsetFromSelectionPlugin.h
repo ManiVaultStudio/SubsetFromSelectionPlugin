@@ -60,7 +60,7 @@ public:
     /**
      * Transform points dataset
      */
-    void createSubsetWithChildren(Dataset<Points>& points);
+    void createSubsetWithChildren(mv::Dataset<Points>& points);
 
     /**
      * Get transformation type
