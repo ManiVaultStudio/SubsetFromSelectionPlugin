@@ -141,4 +141,3 @@ class SubsetFromSelectionPluginConan(ConanFile):
         self.cpp_info.relwithdebinfo.libdirs = ["RelWithDebInfo/lib"]
         self.cpp_info.relwithdebinfo.bindirs = ["RelWithDebInfo/Plugins", "RelWithDebInfo"]
         self.cpp_info.relwithdebinfo.includedirs = ["RelWithDebInfo/include", "RelWithDebInfo"]
-
